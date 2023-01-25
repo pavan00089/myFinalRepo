@@ -1,0 +1,15 @@
+<template>
+ <template if:true={showRoomInfo}>
+
+
+    <div class="slds-p-around_medium lgc-bg-inverse" onclick={clickedTile}>
+      <lightning-tile label={meetingRoomInfo.roomName} href="/path/to/somewhere">
+            <p class="slds-truncate" style="color:white" title={meetingRoomInfo.roomCapacity}>Room Capacity - {meetingRoomInfo.roomCapacity}</p>
+        </lightning-tile>
+  <!-- using slots to pass markup from parent component
+          <slot name="roomInfo"></slot>
+        <div>Division in child component</div>
+        <slot></slot> -->
+    </div>
+</template>
+</template>

@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title="Meeting Room Info">
+    
+
+        <lightning-layout>
+            <lightning-layout-item size="4" padding="around-small">
+                <ul>
+                    <template for:each={meetingRoomsInfo} for:item="room">
+                        <li key={room.roomName} style="padding: 10px">
+                            <!-- To handle the event through declaratively on load of component creation
+                            <c-meeting-room meeting-room-info={room} show-room-info ontileclick={tileClickSelectHandler}></c-meeting-room>
+                            -->
+                            <!--To handle the event thorugh programatically using event listner-->
+                            <c-meeting-room meeting-room-info={room} show-room-info ></c-meeting-room>
+                        </li>
+                    </template>
+                </ul>
+            </lightning-layout-item>
+            <lightning-layout-item size="4" padding="around-small">
+                You have Selected : {SelectedMeetingRoomName}
+            </lightning-layout-item>
+        </lightning-layout>
+
+        
+     <!-- Passing markup to child component using slots   <ul>
+        <template for:each={meetingRoomsInfo} for:item="room">
+            <li key={room.roomName} style="padding: 10px">
+                <c-meeting-room slot="roomInfo" >
+                    <lightning-tile label={room.roomName} href="/path/to/somewhere">
+                        <p class="slds-truncate" style="color:white" title={room.roomCapacity}>Room Capacity - {room.roomCapacity}</p>
+                    </lightning-tile>
+                    <div>Additional division text from parent</div>
+                </c-meeting-room>
+            </li>
+        </template> 
+    </ul> -->
+</lightning-card>
+</template>

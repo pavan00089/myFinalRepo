@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Account_Type_To_Customer</fullName>
+        <field>Type</field>
+        <literalValue>Customer</literalValue>
+        <name>Account Type To Customer</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Account_Type_To_Pending</fullName>
+        <field>Type</field>
+        <literalValue>Pending</literalValue>
+        <name>Account Type To Pending</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Account_Type_To_Prospect</fullName>
+        <field>Type</field>
+        <literalValue>Prospect</literalValue>
+        <name>Account Type To Prospect</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_next_Evalution_date</fullName>
+        <field>Next_Evaluation_Date__c</field>
+        <formula>CASE(Text(Frequency__c),
+&apos;Weekly&apos;,Next_Evaluation_Date__c+ 7,
+&apos;Bi-Monthly&apos;,Next_Evaluation_Date__c+ 15,
+&apos;2-year&apos;,DATE(YEAR(Next_Evaluation_Date__c)+2,MONTH(Next_Evaluation_Date__c),DAY(Next_Evaluation_Date__c)), 
+&apos;3-year&apos;,DATE(YEAR(Next_Evaluation_Date__c)+3,MONTH(Next_Evaluation_Date__c),DAY(Next_Evaluation_Date__c)), 
+&apos;4-year&apos;,DATE(YEAR(Next_Evaluation_Date__c)+4,MONTH(Next_Evaluation_Date__c),DAY(Next_Evaluation_Date__c)), 
+&apos;5-year&apos;,DATE(YEAR(Next_Evaluation_Date__c)+5,MONTH(Next_Evaluation_Date__c),DAY(Next_Evaluation_Date__c)),null)</formula>
+        <name>Update next Evalution date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Set next evalution date</fullName>
+        <actions>
+            <name>Update_next_Evalution_date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Frequency__c</field>
+            <operation>equals</operation>
+            <value>2-year,3-year,4-year,5-year,Bi-Monthly,Weekly</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

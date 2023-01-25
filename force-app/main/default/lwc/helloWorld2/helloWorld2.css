@@ -1,0 +1,11 @@
+.helloWorld{
+    background-color: green;
+    color: black;
+    font-size: medium;
+}
+div{
+    border : 3px solid blue;
+}
+:host{
+    border : 4px solid red;  
+}

@@ -1,0 +1,8 @@
+<aura:component implements="force:appHostable,force:hasRecordId,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" controller="testNoOfOptyes" >
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    <aura:attribute name="optys" type="Integer"></aura:attribute>
+    <lightning:card title="Total Opportunrities">
+         No Of opportunities : {!v.optys}
+    </lightning:card>
+   
+</aura:component>

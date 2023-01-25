@@ -1,0 +1,21 @@
+<template>
+   Hello {AccountDetails}
+    <div class="slds-box">
+        <template if:true={AccountDetails}>
+            <div class="slds-grid slds-wrap slds-gutters">
+                <template for:each={AccountDetails} for:item="Acc">
+                    <div class="slds-col slds-large-size_4-of-12 slds-medium-size_1-of-12 slds-size_1-of-12 slds-p-around_small" key={Acc.Id}>
+                        <lightning-card title={Acc.Name}>
+                            <lightning-button label="View Details" variant="success" slot="actions" onclick={navigateDetails} value={Acc.Id}>
+                            </lightning-button>
+                            <div class="slds-var-p-around_small">
+                                <p>Acc.Name</p>
+                                <p>Acc.AccountSource</p>
+                            </div>
+                        </lightning-card>
+                    </div>
+                </template>
+            </div>
+        </template>
+    </div>
+</template>
