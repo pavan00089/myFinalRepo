@@ -11,7 +11,7 @@ public class AnimalLocator {
         if(response.getStatusCode() == 200) {
             // Deserializes the JSON string into collections of primitive data types.
             Map<String, Object> results = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
-            // merge conflict test 2
+            // merge conflict test 2  TEST AND ENJOY
             Map<String,object> c = (Map<String,object>)results.get('animal');
             res= String.valueOf(c.get('name'));
 			
